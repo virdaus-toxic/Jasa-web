@@ -53,4 +53,37 @@
   
   <p class="note">*Buat pelajar/mahasiswa/pejuang UMKM: bilang "FREE PASS" pas chat WA. Gratis 1x, bayar pake doa + testimoni aja m wkwk</p>
 </body>
-</html>
+</html><!-- 1. TAMPILAN CHATBOT DI WEBSITE -->
+<div id="chatbox" style="position:fixed; bottom:20px; right:20px; width:300px; background:#111; color:white; border-radius:12px; padding:15px; font-family:sans-serif; z-index:9999;">
+  <div style="font-weight:bold; margin-bottom:8px;">🤖 Halo! Ada yang bisa dibantu?</div>
+  <input id="nama" placeholder="Nama kamu..." style="width:100%; margin-bottom:6px; padding:6px; border-radius:6px; border:none;">
+  <select id="kebutuhan" style="width:100%; margin-bottom:6px; padding:6px; border-radius:6px; border:none;">
+    <option>Belajar Coding</option>
+    <option>Les Gratis</option>
+    <option>Bikinin Website</option>
+  </select>
+  <textarea id="pesan" placeholder="Tulis pesan..." style="width:100%; height:60px; padding:6px; border-radius:6px; border:none;"></textarea>
+  <button onclick="kirim()" style="width:100%; margin-top:6px; padding:8px; background:#25D366; border:none; border-radius:6px; color:white; font-weight:bold; cursor:pointer;">
+    Kirim ke Bang
+  </button>
+</div>
+
+<script>
+function kirim() {
+  let nama = document.getElementById('nama').value;
+  let kebutuhan = document.getElementById('kebutuhan').value;
+  let pesan = document.getElementById('pesan').value;
+
+  if(nama == "" || pesan == "") {
+    alert("Isi nama + pesan dulu bang 😈");
+    return;
+  }
+
+  let text = `🔥 NOTIF WEB BARU 🔥%0A
+  Nama: ${nama}%0A
+  Kebutuhan: ${kebutuhan}%0A
+  Pesan: ${pesan}`;
+
+  // GANTI NOMOR WA LU DI SINI. Pake format 62 tanpa +
+  let wa = "628xxxxxxxxxx"; 
+  window.open(`https://wa.me/${wa}?
